@@ -1,5 +1,11 @@
 import { Game } from "./Game";
 import { InputHandler } from "./InputHandler";
+
+type Border = {
+    x: number,
+    y: number
+};
+
 export class Player {
     private playerWidth: number;
     private playerHeight: number;
@@ -10,6 +16,8 @@ export class Player {
     private speed_y: number;
     private border_x: number;
     private border_y: number;
+    private toCheck: Array<Border>;
+    private shotPressed: Boolean;
     constructor(width: number, height: number, game: Game){
         this.game = game;
         this.playerWidth = 6 * width;
@@ -20,6 +28,8 @@ export class Player {
         this.speed_y = 5;
         this.border_x = this.game.canvas?.width! - this.playerWidth;
         this.border_y = this.game.canvas?.height! - this.playerHeight;
+        this.toCheck = [];
+        this.shotPressed = false;
     }
 
     drawPlayer(){
@@ -31,24 +41,41 @@ export class Player {
     }
 
     update(input: InputHandler){
+        this.checkBorders();
+        this.checkDirection(input);
+        this.isPaused(input);
+    }
 
-        if(this.x > this.border_x){
-            console.log(this.x)
-            this.x = this.border_x
-        }
-        else if(this.x < 0){
-            console.log(this.x)
-            this.x = 0
-        }
+    checkBorders(){
+        this.toCheck = [
+            {x: this.x, y: this.y}, 
+            {x: this.x + this.playerWidth,y: this.y}, 
+            {x: this.x, y: this.y + this.playerHeight}, 
+            {x: this.x + this.playerWidth, y:  this.y + this.playerHeight},
+            {x: this.x + this.playerWidth / 2, y: this.y},
+            {x: this.x + this.playerWidth / 2, y: this.y + this.playerHeight}
+        ];
 
-
-        if(this.y > this.border_y){
-            this.y = this.border_y
+        for(let i = 0; i < this.toCheck.length; i++){
+            for(let j = 0; j < 3; j++){
+                if(this.game.ctx.getImageData(this.toCheck[i]!.x, this.toCheck[i]!.y, 1, 1).data[j] != 0){
+                    console.log(document.getElementById('playerImage')!.style)
+                    this.game.ctx.clearRect(this.x, this.y,  this.playerWidth, this.playerHeight);
+                    this.speed_x = 0
+                    this.speed_y = 0
+                    this.game.isAlive = false;
+                    this.x = (this.game.canvas?.width!- this.playerWidth) / 2;
+                    this.y = this.game.canvas?.height! / 4;
+                    return;
+                }
+            }
         }
-        else if(this.y < 0){
-            this.y = 0
+        if(this.y < 0){
+            this.y = 0;
         }
+    }
 
+    checkDirection(input: InputHandler){
         if(input.keys.indexOf('ArrowRight') > -1 ){
             this.x +=  this.speed_x;
         }
@@ -61,17 +88,20 @@ export class Player {
         else if(input.keys.indexOf('ArrowUp') > -1 ){
             this.y -= this.speed_y;
         }
+    }
 
+    checkIsShooting(input: InputHandler){
+        
+    }
+
+    isPaused(input: InputHandler){
         if(input.keys.indexOf('h') > -1 ){
-            this.speed_x = 0
-            this.speed_y = 0
+            this.speed_x = 0;
+            this.speed_y = 0;
         }
         else{
             this.speed_x = 5;
             this.speed_y = 5;
         }
-    }
-
-    detectCollision(){
     }
 }

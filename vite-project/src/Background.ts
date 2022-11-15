@@ -26,6 +26,10 @@ export class Background {
         if(this.y < -this.backgroundHeight){
             this.y = 0
         }
+        if(this.game.isAlive == false){
+            this.y = 0;
+            this.game.isAlive = true;
+        }
         if(input.keys.indexOf('h') > -1 ){
             this.speed = 0
         }

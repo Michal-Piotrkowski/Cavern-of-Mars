@@ -16,6 +16,14 @@ export class InputHandler {
                     document.getElementById("pause")!.style.display = "none";
                 }
             }
+            else if(e.key === "Control"){
+                if(this.keys.indexOf(e.key) === -1){
+                    this.keys.push(e.key)
+                }
+                else{
+                    this.keys.splice(this.keys.indexOf(e.key), 1)
+                }
+            }
         })
         window.addEventListener("keyup", (e) => {
             if(e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'ArrowRight'){

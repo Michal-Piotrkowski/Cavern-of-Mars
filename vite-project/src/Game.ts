@@ -7,6 +7,7 @@ export class Game {
     private background: Background;
     private inputHandler: InputHandler;
     private player: Player;
+    public isAlive: Boolean;
 
     constructor(){
         this.canvas = <HTMLCanvasElement>document.getElementById("canvas");
@@ -16,6 +17,7 @@ export class Game {
         this.inputHandler = new InputHandler();
         this.player = new Player( 25, 15, this);
         this.background = new Background(this);
+        this.isAlive = true;
         this.animate(this.ctx, this.canvas!);
     }
 
