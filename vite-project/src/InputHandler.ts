@@ -16,12 +16,9 @@ export class InputHandler {
                     document.getElementById("pause")!.style.display = "none";
                 }
             }
-            else if(e.key === "Control"){
+            else if(e.key === "p"){
                 if(this.keys.indexOf(e.key) === -1){
                     this.keys.push(e.key)
-                }
-                else{
-                    this.keys.splice(this.keys.indexOf(e.key), 1)
                 }
             }
         })

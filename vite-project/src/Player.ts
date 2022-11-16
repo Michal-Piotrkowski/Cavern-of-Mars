@@ -18,6 +18,7 @@ export class Player {
     private border_y: number;
     private toCheck: Array<Border>;
     private shotPressed: Boolean;
+    private speed_of_bullet: number;
     constructor(width: number, height: number, game: Game){
         this.game = game;
         this.playerWidth = 6 * width;
@@ -30,6 +31,7 @@ export class Player {
         this.border_y = this.game.canvas?.height! - this.playerHeight;
         this.toCheck = [];
         this.shotPressed = false;
+        this.speed_of_bullet = 30;
     }
 
     drawPlayer(){
@@ -43,6 +45,7 @@ export class Player {
     update(input: InputHandler){
         this.checkBorders();
         this.checkDirection(input);
+        this.checkIsShooting(input)
         this.isPaused(input);
     }
 
@@ -66,12 +69,12 @@ export class Player {
                     this.game.isAlive = false;
                     this.x = (this.game.canvas?.width!- this.playerWidth) / 2;
                     this.y = this.game.canvas?.height! / 4;
+                    if(this.y < 0){
+                        this.y = 0;
+                    }
                     return;
                 }
             }
-        }
-        if(this.y < 0){
-            this.y = 0;
         }
     }
 
@@ -91,7 +94,14 @@ export class Player {
     }
 
     checkIsShooting(input: InputHandler){
-        
+        let pos_shooting: Border = {x: this.x + (this.playerWidth / 2), y: this.y + this.playerWidth}
+        pos_shooting.y +=  this.speed_of_bullet;
+        if(input.keys.indexOf('p') > -1){
+            console.log("X")
+            this.game.ctx.fillRect(pos_shooting.x, pos_shooting.y, 10, 10);
+            this.game.ctx.fillStyle = "#FF0000";
+            this.game.ctx.stroke();
+        }
     }
 
     isPaused(input: InputHandler){
