@@ -1,29 +1,29 @@
 export class InputHandler {
     public keys: Array<String>;
-    constructor(){
+    constructor() {
         this.keys = [];
         window.addEventListener("keydown", (e) => {
-            if((e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') && this.keys.indexOf(e.key) === -1){
+            if ((e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') && this.keys.indexOf(e.key) === -1) {
                 this.keys.push(e.key)
             }
-            else if(e.key === 'h'){
-                if(this.keys.indexOf(e.key) === -1){
+            else if (e.key === 'h') {
+                if (this.keys.indexOf(e.key) === -1) {
                     this.keys.push(e.key)
                     document.getElementById("pause")!.style.display = "flex";
                 }
-                else{
+                else {
                     this.keys.splice(this.keys.indexOf(e.key), 1)
                     document.getElementById("pause")!.style.display = "none";
                 }
             }
-            else if(e.key === "p"){
-                if(this.keys.indexOf(e.key) === -1){
+            else if (e.key === "Control") {
+                if (this.keys.indexOf(e.key) === -1) {
                     this.keys.push(e.key)
                 }
             }
         })
         window.addEventListener("keyup", (e) => {
-            if(e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'ArrowRight'){
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'Control') {
                 this.keys.splice(this.keys.indexOf(e.key), 1)
             }
         })
