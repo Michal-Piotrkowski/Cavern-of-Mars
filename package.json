@@ -1,13 +1,17 @@
 {
-  "devDependencies": {
-    "typescript": "^4.8.4"
-  },
   "name": "cavern-of-mars",
   "description": "A school project that involves creating a copy of the game for atari 8 bit. In this case it will be 1982 Cavern of Mars.",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "^4.6.4",
+    "vite": "^3.2.4"
   },
   "repository": {
     "type": "git",

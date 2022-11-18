@@ -17,13 +17,12 @@ export class InputHandler {
                 }
             }
             else if (e.key === "Control") {
-                if (this.keys.indexOf(e.key) === -1) {
-                    this.keys.push(e.key)
-                }
+                console.log("POLSKA!");
+                this.keys.push(e.key)
             }
         })
         window.addEventListener("keyup", (e) => {
-            if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'ArrowRight' || e.key === 'Control') {
+            if (e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') {
                 this.keys.splice(this.keys.indexOf(e.key), 1)
             }
         })

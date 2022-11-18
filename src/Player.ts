@@ -1,6 +1,5 @@
 import { Game } from "./Game";
 import { InputHandler } from "./InputHandler";
-import { Shoot } from "./Shoot";
 
 type Border = {
     x: number,
@@ -8,19 +7,14 @@ type Border = {
 };
 
 export class Player {
-    private playerWidth: number;
-    private playerHeight: number;
+    public playerWidth: number;
+    public playerHeight: number;
     private game: Game;
-    private x: number;
-    private y: number;
+    public x: number;
+    public y: number;
     private speed_x: number;
     private speed_y: number;
-    private border_x: number;
-    private border_y: number;
     private toCheck: Array<Border>;
-    private shotPressed: Boolean;
-    private speed_of_bullet: number;
-    private shots: Array<Shoot>;
     constructor(width: number, height: number, game: Game) {
         this.game = game;
         this.playerWidth = 6 * width;
@@ -29,12 +23,7 @@ export class Player {
         this.y = this.game.canvas?.height! / 4;
         this.speed_x = 5;
         this.speed_y = 5;
-        this.border_x = this.game.canvas?.width! - this.playerWidth;
-        this.border_y = this.game.canvas?.height! - this.playerHeight;
         this.toCheck = [];
-        this.shots = [];
-        this.shotPressed = false;
-        this.speed_of_bullet = 30;
     }
 
     drawPlayer() {
@@ -48,7 +37,6 @@ export class Player {
     update(input: InputHandler) {
         this.checkBorders();
         this.checkDirection(input);
-        this.checkIsShooting(input)
         this.isPaused(input);
     }
 
@@ -94,19 +82,6 @@ export class Player {
         else if (input.keys.indexOf('ArrowUp') > -1) {
             this.y -= this.speed_y;
         }
-    }
-
-    checkIsShooting(input: InputHandler) {
-        let bullet: Shoot = new Shoot(this.game, { x: this.x, y: this.y }, { playerWidth: this.playerWidth, playerHeight: this.playerHeight });
-        if (input.keys.indexOf('Control') > -1) {
-            this.shots.push(bullet);
-        }
-        if (this.shots.length > 0) {
-            this.shots.forEach(shot => {
-                shot.createShot();
-            });
-        }
-
     }
 
     isPaused(input: InputHandler) {
