@@ -1,7 +1,14 @@
+import { Game } from "./Game";
+import { Player } from "./Player";
+
 export class InputHandler {
     public keys: Array<String>;
-    constructor() {
+    private game: Game;
+    public player: Player;
+    constructor(game: Game, player: Player) {
         this.keys = [];
+        this.game = game;
+        this.player = player;
         window.addEventListener("keydown", (e) => {
             if ((e.key === 'ArrowDown' || e.key === 'ArrowUp' || e.key === 'ArrowLeft' || e.key === 'ArrowRight') && this.keys.indexOf(e.key) === -1) {
                 this.keys.push(e.key)
@@ -16,9 +23,9 @@ export class InputHandler {
                     document.getElementById("pause")!.style.display = "none";
                 }
             }
-            else if (e.key === "Control") {
-                console.log("POLSKA!");
-                this.keys.push(e.key)
+            
+            if (e.key === "Control") {
+                this.game.shots.add(this.game, {x: this.player.x, y: this.player.y}, { playerWidth: player.playerWidth, playerHeight: player.playerWidth}, this);
             }
         })
         window.addEventListener("keyup", (e) => {

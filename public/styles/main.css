@@ -28,6 +28,10 @@ body{
     display: none;
 }
 
+#playerDeadImage {
+    display: none;
+}
+
 #backgroundImage {
     display: none;
 }
