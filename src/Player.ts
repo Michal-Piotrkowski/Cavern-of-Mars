@@ -59,6 +59,7 @@ export class Player {
                     this.game.ctx.drawImage(document.getElementById('playerDeadImage')! as CanvasImageSource,this.x, this.y, this.playerWidth, this.playerHeight)
                     this.game.isAlive = false;
                     this.game.audioManager.playDieSound();
+                    this.game.collisionObjects.objectsArray = [];
                     let x = setTimeout(() => {
                         this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
                         this.x = (this.game.canvas?.width! - this.playerWidth) / 2;

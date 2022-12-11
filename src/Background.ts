@@ -4,11 +4,12 @@ import { InputHandler } from "./InputHandler";
 export class Background {
     public game: Game;
     private x: number;
-    private y: number;
+    public y: number;
     private backgroundWidth: number;
-    private backgroundHeight: number;
-    private speed: number;
+    public backgroundHeight: number;
+    public speed: number;
     public borderY: number;
+    private isGameBreak: boolean;
     constructor(game: Game) {
         this.game = game;
         this.x = 0;
@@ -17,6 +18,7 @@ export class Background {
         this.backgroundWidth = this.game.canvas?.width!;
         this.backgroundHeight= 50 * this.game.canvas?.height!;
         this.speed = 3;
+        this.isGameBreak = false;
     }
 
     drawBackground(){
@@ -24,28 +26,33 @@ export class Background {
     }
 
     update(input: InputHandler){
+        if(this.isGameBreak){
+            return;
+        }
         if(this.y < -this.backgroundHeight){
-            this.y = 0
+            this.y = 0;
         }
         if(input.keys.indexOf('h') > -1 ){
-            this.speed = 0
+            this.speed = 0;
         }
         else if(this.y  < -13500){
-            this.speed = 4
+            this.speed = 4;
         }
         else{
-            this.speed = 3
+            this.speed = 3;
         }
         if(this.game.isAlive == false){
             this.speed = 0;
-            let x = setTimeout(() => {
-                this.y = 0
+            this.isGameBreak = true;
+            setTimeout(() => {
+                this.y = 0;
+                this.game.collisionObjects.addBonuses();
+                this.game.collisionObjects.addEnemies();
                 this.game.isAlive = true;
-                clearTimeout(x);
+                this.isGameBreak = false;
             }, 300);
-            let x2 = setTimeout(() => {
+            setTimeout(() => {
                 this.game.audioManager.playStartSound();
-                clearTimeout(x2);
             }, 700);
         }
         this.y -= this.speed;

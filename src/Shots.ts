@@ -8,7 +8,7 @@ export class Shots {
     }
 
     add(game: Game, coordinates: { x: number, y: number }, player: { playerWidth: number, playerHeight: number }, input: InputHandler){
-        this.shots.push(new Shot(game, coordinates, player, input));
+        this.shots.push(new Shot(game, coordinates, player, input), new Shot(game, {x: coordinates.x + player.playerWidth, y: coordinates.y}, player, input));
     }
 
     update(){

@@ -1,0 +1,423 @@
+{
+   "objects": {
+    "lvl": {
+        "one": {
+            "enemies": {
+                "static": [
+                    {
+                        "name": "radarTransmitters",
+                        "width": 90,
+                        "height": 110,
+                        "coordinates":{
+                            "x": 641,
+                            "y": 1245
+                        },
+                        "imgSrc": "/radarTransmitter.PNG"
+                    },
+                    {
+                        "name": "creonRockets",
+                        "width": 75,
+                        "height": 110,
+                        "coordinates": {
+                            "x": 916,
+                            "y": 1355
+                            },
+                        "imgSrc": "/creonRocket.PNG"
+                    },
+                    {
+                        "name": "radarTransmitters",
+                        "width": 90,
+                        "height": 110,
+                        "coordinates":{
+                            "x": 915,
+                            "y": 2235
+                        },
+                        "imgSrc": "/radarTransmitter.PNG"
+                    },
+                    {
+                        "name": "creonRockets",
+                        "width": 75,
+                        "height": 110,
+                        "coordinates": {
+                            "x": 641,
+                            "y": 5324
+                            },
+                        "imgSrc": "/creonRocket.PNG"
+                    },
+                    {
+                        "name": "creonRockets",
+                        "width": 75,
+                        "height": 110,
+                        "coordinates": {
+                            "x": 916,
+                            "y": 5436
+                            },
+                        "imgSrc": "/creonRocket.PNG"
+                    },
+                    {
+                        "name": "radarTransmitters",
+                        "width": 90,
+                        "height": 110,
+                        "coordinates":{
+                            "x": 1190,
+                            "y": 6210
+                        },
+                        "imgSrc": "/radarTransmitter.PNG"
+                    },
+                    {
+                        "name": "radarTransmitters",
+                        "width": 90,
+                        "height": 110,
+                        "coordinates":{
+                            "x": 915,
+                            "y": 6322
+                        },
+                        "imgSrc": "/radarTransmitter.PNG"
+                    },
+                    {
+                        "name": "creonRockets",
+                        "width": 75,
+                        "height": 110,
+                        "coordinates": {
+                            "x": 642,
+                            "y": 7090
+                            },
+                        "imgSrc": "/creonRocket.PNG"
+                    },
+                    {
+                        "name": "radarTransmitters",
+                        "width": 90,
+                        "height": 110,
+                        "coordinates":{
+                            "x": 915,
+                            "y": 7203
+                        },
+                        "imgSrc": "/radarTransmitter.PNG"
+                    },
+                    {
+                        "name": "radarTransmitters",
+                        "width": 90,
+                        "height": 110,
+                        "coordinates":{
+                            "x": 915,
+                            "y": 8088
+                        },
+                        "imgSrc": "/radarTransmitter.PNG"
+                    },
+                    {
+                        "name": "radarTransmitters",
+                        "width": 90,
+                        "height": 110,
+                        "coordinates":{
+                            "x": 641,
+                            "y": 8860
+                        },
+                        "imgSrc": "/radarTransmitter.PNG"
+                    },
+                    {
+                        "name": "creonRockets",
+                        "width": 75,
+                        "height": 110,
+                        "coordinates": {
+                            "x": 368,
+                            "y": 10513
+                            },
+                        "imgSrc": "/creonRocket.PNG"
+                    },
+                    {
+                        "name": "creonRockets",
+                        "width": 75,
+                        "height": 110,
+                        "coordinates": {
+                            "x": 642,
+                            "y": 10627
+                            },
+                        "imgSrc": "/creonRocket.PNG"
+                    },
+                    {
+                        "name": "creonRockets",
+                        "width": 75,
+                        "height": 110,
+                        "coordinates": {
+                            "x": 916,
+                            "y": 10738
+                            },
+                        "imgSrc": "/creonRocket.PNG"
+                    },
+                    {
+                        "name": "radarTransmitters",
+                        "width": 90,
+                        "height": 110,
+                        "coordinates":{
+                            "x": 915,
+                            "y": 13380
+                        },
+                        "imgSrc": "/radarTransmitter.PNG"
+                    },
+                    {
+                        "name": "theFusionBomb",
+                        "coordinates": {
+                            "x": "",
+                            "y": ""
+                            },
+                        "imgSrc": ""
+                    }  
+                ],
+                "moving":[
+                ]
+            },
+            "bonuses": {
+                "static":[
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 363,
+                            "y": 1149
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 1415,
+                            "y": 2030
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 1140,
+                            "y": 2142
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 363,
+                            "y": 5230
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 1415,
+                            "y": 6110
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 363,
+                            "y": 6995
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 1415,
+                            "y": 7875
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 1140,
+                            "y": 7990
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 363,
+                            "y": 8760
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 910,
+                            "y": 8990
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 1415,
+                            "y": 9645
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 1140,
+                            "y": 9760
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 865,
+                            "y": 9870
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 1415,
+                            "y": 11410
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 1140,
+                            "y": 11525
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 865,
+                            "y": 11635
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 1415,
+                            "y": 13175
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    },
+                    {
+                        "name": "fuelTanks",
+                        "width": 144,
+                        "height": 96,
+                        "coordinates": {
+                            "x": 1140,
+                            "y": 13290
+                        },
+                        "imgSrc": "/fuelTank.png"
+                    }
+                ]
+            }
+        },
+        "two": {
+            "enemies": {
+                "static": [
+                        {
+                                "name": "creonRockets",
+                                "coordinates": {
+                                        "x": "",
+                                        "y": ""
+                                },
+                                "imgSrc": ""
+                        },
+                        {
+                                "name": "radarTransmitters",
+                                "coordinates":{
+                                        "x": "",
+                                        "y": ""
+                                    },
+                                "imgSrc": ""
+                        },
+                        {
+                                "name": "spaceMines",
+                                "coordinates":{
+                                        "x": "",
+                                        "y": ""
+                                },
+                                "imgSrc": ""
+                        },
+                        {
+                                "name": "pyxiasRockets",
+                                "coordinates": {
+                                        "x": "",
+                                        "y": ""
+                                },
+                                "imgSrc": ""
+                        },
+                        {
+                                "name": "theFusionBomb",
+                                "coordinates": {
+                                        "x": "",
+                                        "y": ""
+                                },
+                                "imgSrc": ""
+                        }   
+                ],
+                "moving":[
+                    {
+                        "name": "laserGates",
+                        "coordinates": {
+                            "x": "",
+                            "y": ""
+                        },
+                        "imgSrc": ""
+                    }
+                ]
+            },
+            "bonuses": {
+                "static":[
+                    {
+                            "name": "fuelTanks",
+                            "coordinates": {
+                                "x": "164",
+                                "y": "64"
+                            },
+                            "imgSrc": "/fuelTank.png"
+                    }
+                ]
+            }
+        }
+    } }
+}

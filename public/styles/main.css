@@ -46,7 +46,7 @@ body{
     font-size: 70;
     font-family: pixel;
     color: white;
-    backdrop-filter: blur(10px);
+    /* backdrop-filter: blur(10px); */
 }
 
 #pause h1{
