@@ -42,6 +42,8 @@ export class Shot {
         console.log(this.coordinates.x, this.coordinates.y)
         this.game.collisionObjects.objectsArray.forEach(object => {
             if( this.coordinates.x >= object.x  && this.coordinates.x  <= object.x + object.width && this.coordinates.y >= object.y && this.coordinates.y <= object.y + object.height){
+                this.game.pointsManager.check(`${object.type}`);
+                this.game.audioManager.playExplosionSound();
                 object.imgSrc = "/1.PNG";
                 object.generate(this.game, object.y, `${object.imgSrc}`)
                 setTimeout(() => {
@@ -61,7 +63,7 @@ export class Shot {
                 }, 100);
             }
         });
-        if(this.coordinates.y > this.game.background.borderY){
+        if(this.coordinates.y >  0.7 * this.game.background.borderY){
             return false;
         }
         for (let j = 0; j < 3; j++) {

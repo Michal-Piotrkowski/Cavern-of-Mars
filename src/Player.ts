@@ -12,8 +12,8 @@ export class Player {
     private game: Game;
     public x: number;
     public y: number;
-    private speed_x: number;
-    private speed_y: number;
+    public speed_x: number;
+    public speed_y: number;
     private toCheck: Array<Border>;
     constructor(width: number, height: number, game: Game) {
         this.game = game;
@@ -21,8 +21,8 @@ export class Player {
         this.playerHeight = 6 * height;
         this.x = (this.game.canvas?.width! - this.playerWidth) / 2;
         this.y = this.game.canvas?.height! / 4;
-        this.speed_x = 5;
-        this.speed_y = 5;
+        this.speed_x = 10;
+        this.speed_y = 10;
         this.toCheck = [];
     }
 
@@ -58,20 +58,40 @@ export class Player {
                     this.speed_y = 0
                     this.game.ctx.drawImage(document.getElementById('playerDeadImage')! as CanvasImageSource,this.x, this.y, this.playerWidth, this.playerHeight)
                     this.game.isAlive = false;
-                    this.game.audioManager.playDieSound();
-                    this.game.collisionObjects.objectsArray = [];
+                    this.game.audioManager!.playDieSound();
+                    this.game.collisionObjects!.objectsArray = [];
                     let x = setTimeout(() => {
                         this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
                         this.x = (this.game.canvas?.width! - this.playerWidth) / 2;
                         this.y = this.game.canvas?.height! / 4;
+                        this.game.fuelManager.fuel = 99;
                         clearTimeout(x);
                     }, 300);
                 }
             }
         }
 
-        if(this.y >= this.game.canvas?.height! - this.playerHeight){
-            this.y = this.game.canvas?.height! - this.playerHeight 
+        this.game.collisionObjects.objectsArray.forEach(object => {
+            if(this.x >= object.x && this.x <= object.x + object.width && this.y >= object.y && this.y <= object.y + object.height){
+                    this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
+                    this.speed_x = 0
+                    this.speed_y = 0
+                    this.game.ctx.drawImage(document.getElementById('playerDeadImage')! as CanvasImageSource,this.x, this.y, this.playerWidth, this.playerHeight)
+                    this.game.isAlive = false;
+                    this.game.audioManager!.playDieSound();
+                    this.game.collisionObjects!.objectsArray = [];
+                    let x = setTimeout(() => {
+                        this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
+                        this.x = (this.game.canvas?.width! - this.playerWidth) / 2;
+                        this.y = this.game.canvas?.height! / 4;
+                        this.game.fuelManager.fuel = 99;
+                        clearTimeout(x);
+                    }, 300);
+            }
+        });
+
+        if(this.y >= 0.7 * this.game.canvas?.height! - this.playerHeight){
+            this.y = 0.7 * this.game.canvas?.height! - this.playerHeight 
         }
         if(this.y < 0){
             this.y = 0; 

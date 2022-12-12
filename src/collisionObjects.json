@@ -156,12 +156,22 @@
                     },
                     {
                         "name": "theFusionBomb",
+                        "width": 200,
+                        "height": 200,
+                        "coordinates": {
+                            "x": 860,
+                            "y": 43880
+                            },
+                        "imgSrc": "/thefusionBomb.png"
+                    },
+                    {
+                        "name": "pyxiasRockets",
                         "coordinates": {
                             "x": "",
                             "y": ""
-                            },
+                        },
                         "imgSrc": ""
-                    }  
+                    }
                 ],
                 "moving":[
                 ]

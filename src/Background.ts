@@ -32,7 +32,7 @@ export class Background {
         if(this.y < -this.backgroundHeight){
             this.y = 0;
         }
-        if(input.keys.indexOf('h') > -1 ){
+        if(input.keys.indexOf('h') > -1 || this.game.isGameRestarting){
             this.speed = 0;
         }
         else if(this.y  < -13500){
@@ -44,6 +44,7 @@ export class Background {
         if(this.game.isAlive == false){
             this.speed = 0;
             this.isGameBreak = true;
+            this.game.livesManager.lives -= 1;
             setTimeout(() => {
                 this.y = 0;
                 this.game.collisionObjects.addBonuses();
