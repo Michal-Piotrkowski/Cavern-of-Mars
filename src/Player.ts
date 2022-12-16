@@ -94,11 +94,11 @@ export class Player {
         //     }
         // });
 
-        if(this.y >= 0.7 * this.game.canvas?.height! - this.playerHeight){
-            this.y = 0.7 * this.game.canvas?.height! - this.playerHeight 
+        if (this.y >= 0.7 * this.game.canvas?.height! - this.playerHeight) {
+            this.y = 0.7 * this.game.canvas?.height! - this.playerHeight
         }
-        if(this.y < 0){
-            this.y = 0; 
+        if (this.y < 0) {
+            this.y = 0;
         }
     }
 

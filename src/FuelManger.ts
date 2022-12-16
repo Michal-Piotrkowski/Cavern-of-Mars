@@ -4,7 +4,7 @@ export class FuelManager {
     public fuel: number;
     private game: Game;
     public add: number;
-    constructor(game: Game){
+    constructor(game: Game) {
         this.fuel = 99;
         this.game = game;
         // this.add = setInterval(() => {
@@ -12,12 +12,12 @@ export class FuelManager {
         // }, 200);
     }
 
-    check(){
-        if(this.fuel == 0){
+    check() {
+        if (this.fuel == 0) {
             this.game.ctx.clearRect(this.game.player.x, this.game.player.y, this.game.player.playerWidth, this.game.player.playerHeight);
             this.game.player.speed_x = 0
             this.game.player.speed_y = 0
-            this.game.ctx.drawImage(document.getElementById('playerDeadImage')! as CanvasImageSource,this.game.player.x, this.game.player.y, this.game.player.playerWidth, this.game.player.playerHeight)
+            this.game.ctx.drawImage(document.getElementById('playerDeadImage')! as CanvasImageSource, this.game.player.x, this.game.player.y, this.game.player.playerWidth, this.game.player.playerHeight)
             this.game.isAlive = false;
             this.game.audioManager!.playDieSound();
             this.game.collisionObjects!.objectsArray = [];

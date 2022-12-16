@@ -20,7 +20,7 @@ export class Shot {
     private bulletSize: number;
     private input: InputHandler;
     private speed: number;
-    constructor(game: Game,coordinates: { x: number, y: number }, player: { playerWidth: number, playerHeight: number }, input: InputHandler) {
+    constructor(game: Game, coordinates: { x: number, y: number }, player: { playerWidth: number, playerHeight: number }, input: InputHandler) {
         this.game = game;
         this.coordinates = { x: coordinates.x, y: coordinates.y };
         this.playerData = { w: player.playerWidth, h: player.playerHeight };
@@ -38,10 +38,10 @@ export class Shot {
         this.coordinates.y += this.speed * Game.deltaTime / 8;
     }
 
-    check(){
+    check() {
         console.log(this.coordinates.x, this.coordinates.y)
         this.game.collisionObjects.objectsArray.forEach(object => {
-            if( this.coordinates.x >= object.x  && this.coordinates.x  <= object.x + object.width && this.coordinates.y >= object.y && this.coordinates.y <= object.y + object.height){
+            if (this.coordinates.x >= object.x && this.coordinates.x <= object.x + object.width && this.coordinates.y >= object.y && this.coordinates.y <= object.y + object.height) {
                 this.game.pointsManager.check(`${object.type}`);
                 this.game.audioManager.playExplosionSound();
                 object.img.src = "/1.PNG";
@@ -63,14 +63,14 @@ export class Shot {
                 }, 100);
             }
         });
-        if(this.coordinates.y >  0.7 * this.game.background.borderY){
+        if (this.coordinates.y > 0.7 * this.game.background.borderY) {
             return false;
         }
         for (let j = 0; j < 3; j++) {
-            if (            
-            this.game.ctx.getImageData(this.coordinates.x + this.bulletSize / 2, this.coordinates.y + this.bulletSize, 1, 1).data[0] == 72 &&
-            this.game.ctx.getImageData(this.coordinates.x + this.bulletSize / 2, this.coordinates.y + this.bulletSize, 1, 1).data[1] == 128 &&
-            this.game.ctx.getImageData(this.coordinates.x + this.bulletSize / 2, this.coordinates.y + this.bulletSize, 1, 1).data[2] == 255 ) {
+            if (
+                this.game.ctx.getImageData(this.coordinates.x + this.bulletSize / 2, this.coordinates.y + this.bulletSize, 1, 1).data[0] == 72 &&
+                this.game.ctx.getImageData(this.coordinates.x + this.bulletSize / 2, this.coordinates.y + this.bulletSize, 1, 1).data[1] == 128 &&
+                this.game.ctx.getImageData(this.coordinates.x + this.bulletSize / 2, this.coordinates.y + this.bulletSize, 1, 1).data[2] == 255) {
                 return false;
             }
         }
