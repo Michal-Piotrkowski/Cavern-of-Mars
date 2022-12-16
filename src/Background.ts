@@ -56,6 +56,6 @@ export class Background {
                 this.game.audioManager.playStartSound();
             }, 700);
         }
-        this.y -= this.speed;
+        this.y -= this.speed * Game.deltaTime / 8;
     }
 }

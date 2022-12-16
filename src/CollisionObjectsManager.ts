@@ -57,7 +57,7 @@ export class CollisionObjectsManager {
                 this.objectsArray.splice(this.objectsArray.findIndex((object2: CollisionObject) => object2 == object), 1);
                 return;
             }
-            object.y -= this.game.background.speed;
+            object.y -= this.game.background.speed * Game.deltaTime / 8;
             object.generate(this.game, object.y, `${object.imgSrc}`);
         });
     }

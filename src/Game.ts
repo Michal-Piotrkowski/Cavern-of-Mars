@@ -26,6 +26,7 @@ export class Game {
     public levelSelected: number;
     public highscore: number;
     public isGameRestarting: boolean;
+    static deltaTime: number = 1;
     constructor(levelSelected: number) {
         this.canvas = <HTMLCanvasElement>document.getElementById("canvas");
         this.canvas.width = window.innerWidth;
@@ -33,7 +34,7 @@ export class Game {
         this.ctx = this.canvas.getContext("2d")!;
         this.ctx.imageSmoothingEnabled = false;
         this.pointsManager = new PointsManager(this);
-        this.player = new Player(25, 15, this);
+        this.player = new Player(this.canvas.width/80, this.canvas.height/80, this);
         this.shots = new Shots();
         this.inputHandler = new InputHandler(this, this.player);
         this.background = new Background(this);
@@ -48,20 +49,20 @@ export class Game {
         this.livesManager = new LivesManager(this)
         this.highscore = 0;
         this.isGameRestarting = false;
-        setInterval(() => {
-            if(this.collisionObjects.objectsArray.length > 0){
-                this.collisionObjects.objectsArray.forEach((object: CollisionObject) => {
-                    if(!object.isWhite){
-                        object.isWhite = !object.isWhite;
-                        object.imgSrc = object.imgSrc.substr(1)
-                        object.imgSrc = `W-${object.imgSrc}`
-                    }else{
-                        object.isWhite = !object.isWhite;
-                        object.imgSrc = "/" + object.imgSrc.split("-")[1];
-                    }
-                });
-            }
-        }, 100);
+        // setInterval(() => {
+        //     if(this.collisionObjects.objectsArray.length > 0){
+        //         this.collisionObjects.objectsArray.forEach((object: CollisionObject) => {
+        //             if(!object.isWhite){
+        //                 object.isWhite = !object.isWhite;
+        //                 object.img.src = object.img.src .substr(1)
+        //                 object.img.src  = `W-${object.img.src}`
+        //             }else{
+        //                 object.isWhite = !object.isWhite;
+        //                 object.img.src  = "/" + object.img.src.split("-")[1];
+        //             }
+        //         });
+        //     }
+        // }, 100);
         this.animate(this.ctx, this.canvas!);
     }
 
@@ -122,6 +123,7 @@ export class Game {
     }
 
     animate(ctx: CanvasRenderingContext2D, canvas: HTMLCanvasElement) {
+        const start = performance.now();
         ctx.clearRect(0, 0, canvas?.width, canvas?.height);
         this.background.drawBackground();
         this.background.update(this.inputHandler)
@@ -133,7 +135,7 @@ export class Game {
         this.fuelManager.check();
         this.livesManager.checkIfDead();
         this.showUi();
-        if(this.inputHandler.keys.includes('ArrowDown')){
+        if(this.inputHandler.keys.includes('ArrowUp')){
             this.audioManager.playFastSound();
             this.audioManager.slowSound.pause();
         }
@@ -141,7 +143,10 @@ export class Game {
             this.audioManager.playSlowSound();
             this.audioManager.fastSound.pause();
         }
-        requestAnimationFrame(() => this.animate(ctx, canvas));
+        requestAnimationFrame(() => {
+            Game.deltaTime = performance.now() - start;
+            this.animate(ctx, canvas
+        )});
     }
 }
 

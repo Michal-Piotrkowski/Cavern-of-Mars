@@ -35,7 +35,7 @@ export class Shot {
     }
 
     update() {
-        this.coordinates.y += this.speed;
+        this.coordinates.y += this.speed * Game.deltaTime / 8;
     }
 
     check(){
@@ -44,19 +44,19 @@ export class Shot {
             if( this.coordinates.x >= object.x  && this.coordinates.x  <= object.x + object.width && this.coordinates.y >= object.y && this.coordinates.y <= object.y + object.height){
                 this.game.pointsManager.check(`${object.type}`);
                 this.game.audioManager.playExplosionSound();
-                object.imgSrc = "/1.PNG";
-                object.generate(this.game, object.y, `${object.imgSrc}`)
+                object.img.src = "/1.PNG";
+                object.generate(this.game, object.y, `${object.img.src}`)
                 setTimeout(() => {
-                    object.imgSrc = "/2.PNG";
-                    object.generate(this.game, object.y, `${object.imgSrc}`)
+                    object.img.src = "/2.PNG";
+                    object.generate(this.game, object.y, `${object.img.src}`)
                 }, 200);
                 setTimeout(() => {
-                    object.imgSrc = "/3.PNG";
-                    object.generate(this.game, object.y, `${object.imgSrc}`)
+                    object.img.src = "/3.PNG";
+                    object.generate(this.game, object.y, `${object.img.src}`)
                 }, 200);
                 setTimeout(() => {
-                    object.imgSrc = "/4.PNG";
-                    object.generate(this.game, object.y, `${object.imgSrc}`)
+                    object.img.src = "/4.PNG";
+                    object.generate(this.game, object.y, `${object.img.src}`)
                 }, 200);
                 setTimeout(() => {
                     return false;

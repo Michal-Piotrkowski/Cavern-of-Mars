@@ -5,7 +5,7 @@ let isGamestarted: boolean = false;
 let sound = new Audio('/horn.mp3')
 sound.volume = 0.1;
 sound.loop = true;
-sound.play();
+// sound.play();
 window.addEventListener("keydown", (e) => {
     sound.pause();
     if(e.key === 's' && !isGamestarted){

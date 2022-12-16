@@ -7,9 +7,9 @@ export class FuelManager {
     constructor(game: Game){
         this.fuel = 99;
         this.game = game;
-        this.add = setInterval(() => {
-            this.fuel -= 1;
-        }, 200);
+        // this.add = setInterval(() => {
+        //     this.fuel -= 1;
+        // }, 200);
     }
 
     check(){
