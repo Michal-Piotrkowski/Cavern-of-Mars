@@ -51,16 +51,26 @@ export class Game {
         this.isGameRestarting = false;
         // setInterval(() => {
         //     if(this.collisionObjects.objectsArray.length > 0){
-        //         this.collisionObjects.objectsArray.forEach((object: CollisionObject) => {
-        //             if(!object.isWhite){
-        //                 object.isWhite = !object.isWhite;
-        //                 object.img.src = object.img.src .substr(1)
-        //                 object.img.src  = `W-${object.img.src}`
-        //             }else{
-        //                 object.isWhite = !object.isWhite;
-        //                 object.img.src  = "/" + object.img.src.split("-")[1];
+        //         for(let i = 0; i < 30; i++){
+        //             if(
+        //                 this.collisionObjects.objectsArray[i].img.src.includes('4.PNG') || 
+        //                 this.collisionObjects.objectsArray[i].img.src.includes('3.PNG') || 
+        //                 this.collisionObjects.objectsArray[i].img.src.includes('2.PNG') || 
+        //                 this.collisionObjects.objectsArray[i].img.src.includes('1.PNG')
+        //             ){
+        //                 console.log('====================================');
+        //                 console.log("YES SIR");
+        //                 console.log('====================================');
         //             }
-        //         });
+        //             else if(!this.collisionObjects.objectsArray[i].isWhite){
+        //                 this.collisionObjects.objectsArray[i].isWhite = !this.collisionObjects.objectsArray[i].isWhite;
+        //                 this.collisionObjects.objectsArray[i].img.src = "/W-" + this.collisionObjects.objectsArray[i].img.src.split("/")[3];
+        //             }else{
+        //                 this.collisionObjects.objectsArray[i].isWhite = !this.collisionObjects.objectsArray[i].isWhite;
+        //                 this.collisionObjects.objectsArray[i].img.src  = "/" + this.collisionObjects.objectsArray[i].img.src.split("-")[1];
+        //             }
+        //             console.log(this.collisionObjects.objectsArray[i].img.src)
+        //         }
         //     }
         // }, 100);
         this.animate(this.ctx, this.canvas!);

@@ -9,9 +9,11 @@ export class Background {
     public backgroundHeight: number;
     public speed: number;
     public borderY: number;
+    public reverse: boolean;
     private isGameBreak: boolean;
     constructor(game: Game) {
         this.game = game;
+        this.reverse = false;
         this.x = 0;
         this.y = 0;
         this.borderY = this.game.canvas?.height!;
@@ -56,6 +58,25 @@ export class Background {
                 this.game.audioManager.playStartSound();
             }, 700);
         }
-        this.y -= this.speed * Game.deltaTime / 8;
+
+        let bomb = this.game.collisionObjects.fusionBomb;
+        let player = this.game.player
+
+        if(
+            this.y <= -43853 + bomb!.height && this.y >= -43890 + bomb!.height && 
+            player.x >=  bomb!.x - 20 && player.x <=  bomb!.x + bomb!.width + 20 && player.x + player.playerWidth >=  bomb!.x && player.x + player.playerWidth <=  bomb!.x + bomb!.width + 20 
+        ){
+            this.reverse = true;
+            this.game.collisionObjects.objectsArray = [];
+        }
+        if(this.reverse){
+            this.y += this.speed * Game.deltaTime / 8;
+            if(this.y < -13000){
+                this.speed = 100;
+            }
+        }
+        else{
+            this.y -= this.speed * Game.deltaTime / 8;
+        }
     }
 }

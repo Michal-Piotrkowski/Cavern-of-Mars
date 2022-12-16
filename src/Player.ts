@@ -50,49 +50,49 @@ export class Player {
             { x: this.x + this.playerWidth / 2, y: this.y + this.playerHeight }
         ];
 
-        // for (let i = 0; i < this.toCheck.length; i++) {
-        //     for (let j = 0; j < 3; j++) {
-        //         if (this.game.ctx.getImageData(this.toCheck[i]!.x, this.toCheck[i]!.y, 1, 1).data[j] != 0) {
-        //             this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
-        //             this.speed_x = 0
-        //             this.speed_y = 0
-        //             this.game.ctx.drawImage(document.getElementById('playerDeadImage')! as CanvasImageSource,this.x, this.y, this.playerWidth, this.playerHeight)
-        //             this.game.isAlive = false;
-        //             this.game.audioManager!.playDieSound();
-        //             this.game.collisionObjects!.objectsArray = [];
-        //             let x = setTimeout(() => {
-        //                 this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
-        //                 this.x = (this.game.canvas?.width! - this.playerWidth) / 2;
-        //                 this.y = this.game.canvas?.height! / 4;
-        //                 this.game.fuelManager.fuel = 99;
-        //                 clearTimeout(x);
-        //             }, 300);
-        //         }
-        //     }
-        // }
+        for (let i = 0; i < this.toCheck.length; i++) {
+            for (let j = 0; j < 3; j++) {
+                if (this.game.ctx.getImageData(this.toCheck[i]!.x, this.toCheck[i]!.y, 1, 1).data[j] != 0) {
+                    this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
+                    this.speed_x = 0
+                    this.speed_y = 0
+                    this.game.ctx.drawImage(document.getElementById('playerDeadImage')! as CanvasImageSource,this.x, this.y, this.playerWidth, this.playerHeight)
+                    this.game.isAlive = false;
+                    this.game.audioManager!.playDieSound();
+                    this.game.collisionObjects!.objectsArray = [];
+                    let x = setTimeout(() => {
+                        this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
+                        this.x = (this.game.canvas?.width! - this.playerWidth) / 2;
+                        this.y = this.game.canvas?.height! / 4;
+                        this.game.fuelManager.fuel = 99;
+                        clearTimeout(x);
+                    }, 300);
+                }
+            }
+        }
 
-        // this.game.collisionObjects.objectsArray.forEach(object => {
-        //     for(let i = 0; i < this.toCheck.length; i++){
-        //         if(this.toCheck[i].x >= object.x && this.toCheck[i].x <= object.x + object.width && this.toCheck[i].y >= object.y && this.toCheck[i].y <= object.y + object.height){
-        //             if(!object.img.src.includes("/4.PNG") && !object.img.src.includes("/3.PNG") && !object.img.src.includes("/2.PNG") && !object.img.src.includes("/1.PNG")){
-        //                 this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
-        //                 this.speed_x = 0
-        //                 this.speed_y = 0
-        //                 this.game.ctx.drawImage(document.getElementById('playerDeadImage')! as CanvasImageSource,this.x, this.y, this.playerWidth, this.playerHeight)
-        //                 this.game.isAlive = false;
-        //                 this.game.audioManager!.playDieSound();
-        //                 this.game.collisionObjects!.objectsArray = [];
-        //                 let x = setTimeout(() => {
-        //                     this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
-        //                     this.x = (this.game.canvas?.width! - this.playerWidth) / 2;
-        //                     this.y = this.game.canvas?.height! / 4;
-        //                     this.game.fuelManager.fuel = 99;
-        //                     clearTimeout(x);
-        //                 }, 300);
-        //             }
-        //         }
-        //     }
-        // });
+        this.game.collisionObjects.objectsArray.forEach(object => {
+            for(let i = 0; i < this.toCheck.length; i++){
+                if(this.toCheck[i].x >= object.x && this.toCheck[i].x <= object.x + object.width && this.toCheck[i].y >= object.y && this.toCheck[i].y <= object.y + object.height){
+                    if(!object.img.src.includes("/4.PNG") && !object.img.src.includes("/3.PNG") && !object.img.src.includes("/2.PNG") && !object.img.src.includes("/1.PNG")){
+                        this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
+                        this.speed_x = 0
+                        this.speed_y = 0
+                        this.game.ctx.drawImage(document.getElementById('playerDeadImage')! as CanvasImageSource,this.x, this.y, this.playerWidth, this.playerHeight)
+                        this.game.isAlive = false;
+                        this.game.audioManager!.playDieSound();
+                        this.game.collisionObjects!.objectsArray = [];
+                        let x = setTimeout(() => {
+                            this.game.ctx.clearRect(this.x, this.y, this.playerWidth, this.playerHeight);
+                            this.x = (this.game.canvas?.width! - this.playerWidth) / 2;
+                            this.y = this.game.canvas?.height! / 4;
+                            this.game.fuelManager.fuel = 99;
+                            clearTimeout(x);
+                        }, 300);
+                    }
+                }
+            }
+        });
 
         if (this.y >= 0.7 * this.game.canvas?.height! - this.playerHeight) {
             this.y = 0.7 * this.game.canvas?.height! - this.playerHeight

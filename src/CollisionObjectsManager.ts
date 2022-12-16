@@ -28,7 +28,7 @@ export class CollisionObjectsManager {
             this.objects.lvl.one.enemies.static.forEach((enemy: { name: String; width: number, height: number, coordinates: { x: number, y: number }, imgSrc: string; }) => {
                 let enemyObject: CollisionObject = new CollisionObject(enemy.name, enemy.width, enemy.height, enemy.coordinates.x, enemy.coordinates.y, enemy.imgSrc);
                 if (enemy.name == "theFusionBomb") {
-                    this.fusionBomb = new Bomb(enemy.width, enemy.height, enemy.coordinates.x, enemy.coordinates.y);
+                    this.fusionBomb = new Bomb(this.game, enemy.width, enemy.height, enemy.coordinates.x, enemy.coordinates.y);
                 }
                 enemyObject.generate(this.game, enemy.coordinates.y, enemy.imgSrc);
                 this.objectsArray.push(enemyObject);
